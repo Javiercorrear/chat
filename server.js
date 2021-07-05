@@ -6,6 +6,8 @@ const app = express()
 const server = require( 'http' ).createServer( app )
 const io = require( 'socket.io' )( server )
 
+const PORT = 3000
+
 app.use( express.static( path.join( __dirname, 'public' ) ) )
 app.set( 'views', path.join( __dirname, 'public' ) )
 app.engine( 'html', ejs.renderFile )
@@ -28,4 +30,5 @@ io.on( 'connection', socket => {
   } )
 } )
 
-server.listen( 3000 )
+console.log( `Server running on port ${ PORT }` )
+server.listen( PORT )
