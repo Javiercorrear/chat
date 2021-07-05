@@ -10,14 +10,14 @@ const io = require( 'socket.io' )( server, { cors: { origin: '*' } } )
 const PORT = process.env.PORT || 3000
 
 // app.use( cors() )
-app.use( express.static( path.join( __dirname, 'public' ) ) )
-app.set( 'views', path.join( __dirname, 'public' ) )
-app.engine( 'html', ejs.renderFile )
-app.set( 'view engine', 'html' )
+// app.use( express.static( path.join( __dirname, 'public' ) ) )
+// app.set( 'views', path.join( __dirname, 'public' ) )
+// app.engine( 'html', ejs.renderFile )
+// app.set( 'view engine', 'html' )
 
-app.use( '/', ( req, res ) => {
-    res.render( 'index.html' )
-} )
+// app.use( '/', ( req, res ) => {
+//     res.render( 'index.html' )
+// } )
 
 const messages = []
 
