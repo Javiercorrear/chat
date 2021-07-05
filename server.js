@@ -1,6 +1,7 @@
 const express = require( 'express' )
 const path = require( 'path' )
 const ejs = require( 'ejs' )
+const cors = require( 'cors' )
 
 const app = express()
 const server = require( 'http' ).createServer( app )
@@ -8,6 +9,7 @@ const io = require( 'socket.io' )( server )
 
 const PORT = process.env.PORT || 3000
 
+app.use( cors() )
 app.use( express.static( path.join( __dirname, 'public' ) ) )
 app.set( 'views', path.join( __dirname, 'public' ) )
 app.engine( 'html', ejs.renderFile )
@@ -30,5 +32,4 @@ io.on( 'connection', socket => {
   } )
 } )
 
-console.log( `Server running on port ${ PORT }` )
-server.listen( PORT )
+server.listen( PORT, () => console.log( `Server running on port ${ PORT }` ) )
