@@ -19,7 +19,8 @@
   </form>
 
   <script type="text/javascript">
-    const socket = io( 'http://localhost:3000' )
+    // const socket = io( 'http://localhost:3000' )
+    const socket = io( 'https://chat-server-pdi.herokuapp.com' )
 
     const renderMessage = message => {
       $( '.messages' ).append( `<div class="message"><strong>${ message.author }</strong>: ${ message.message }</div>` )
