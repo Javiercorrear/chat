@@ -4,7 +4,14 @@ const ejs = require( 'ejs' )
 
 const app = express()
 const server = require( 'http' ).createServer( app )
-const io = require( 'socket.io' )( server, { cors: { origin: '*' } } )
+const io = require( 'socket.io' )( server, {
+  cors: {
+    origin: '*',
+    methods: [ 'GET', 'POST' ],
+    transports: [ 'websocket', 'polling' ],
+    credentials: true
+},
+} )
 
 const PORT = process.env.PORT || 3000
 
